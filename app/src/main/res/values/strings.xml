@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">RedditNetworking</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="post"><b>Title: %1$s</b>\n\tAuthor: %2$s\n\tScore: %3$d\n\t</string>
+
+    <string name="action_settings">Settings</string>
+</resources>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_funny"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="funny" />
+        <item
+            android:id="@+id/nav_csgo"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="GlobalOffensive" />
+        <item
+            android:id="@+id/nav_osrs"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Runescape" />
+        <item
+            android:id="@+id/nav_programming"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Programming" />
+        <item
+            android:id="@+id/nav_webdev"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="WebDev" />
+        <item
+            android:id="@+id/nav_androiddev"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="AndroidDev" />
+    </group>
+</menu>
