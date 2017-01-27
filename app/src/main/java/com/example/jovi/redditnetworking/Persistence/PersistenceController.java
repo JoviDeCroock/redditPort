@@ -13,6 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class PersistenceController {
     private Retrofit retrofit;
     private RedditService rService;
+    private int lim = 25;
 
     public PersistenceController()
     {
@@ -24,38 +25,9 @@ public class PersistenceController {
         rService = retrofit.create(RedditService.class);
     }
 
-    public Call<Wrapper> getFunny() {
-        Call<Wrapper> call = rService.getFunny();
-        return call;
-    }
-
-    public Call<Wrapper> getCsgo()
+    public Call<Wrapper> getPosts(String subreddit, String after)
     {
-        Call<Wrapper> call = rService.getCsgo();
-        return call;
-    }
-
-    public Call<Wrapper> getProgramming()
-    {
-        Call<Wrapper> call = rService.getProgramming();
-        return call;
-    }
-
-    public Call<Wrapper> getWebdev()
-    {
-        Call<Wrapper> call = rService.getWebdev();
-        return call;
-    }
-
-    public Call<Wrapper> getAndroiddev()
-    {
-        Call<Wrapper> call = rService.getAndroiddev();
-        return call;
-    }
-
-    public Call<Wrapper> getOsrs()
-    {
-        Call<Wrapper> call = rService.getOsrs();
+        Call<Wrapper> call = rService.getPosts(subreddit, lim,after);
         return call;
     }
 }

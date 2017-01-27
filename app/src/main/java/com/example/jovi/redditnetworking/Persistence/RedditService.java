@@ -4,6 +4,9 @@ import com.example.jovi.redditnetworking.Domain.*;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
+import retrofit2.http.Query;
+import retrofit2.http.Url;
 
 
 /**
@@ -12,16 +15,6 @@ import retrofit2.http.GET;
 
 public interface RedditService
 {
-    @GET("funny.json?count=25")
-    Call<Wrapper> getFunny();
-    @GET("GlobalOffensive.json?count=25")
-    Call<Wrapper> getCsgo();
-    @GET("programming.json?count=25")
-    Call<Wrapper> getProgramming();
-    @GET("webdev.json?count=25")
-    Call<Wrapper> getWebdev();
-    @GET("androiddev.json?count=25")
-    Call<Wrapper> getAndroiddev();
-    @GET("2007scape.json?count=25")
-    Call<Wrapper> getOsrs();
+    @GET("/r/{subreddit}.json?limit=")
+    Call<Wrapper> getPosts(@Path("subreddit") String subreddit, @Query("limit") int limit, @Query("after") String after);
 }

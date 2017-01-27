@@ -6,14 +6,22 @@ package com.example.jovi.redditnetworking.Domain;
 
 public class Post
 {
-    public String id;
     public String title;
     public String author;
     public int score;
     public String thumbnail;
     public String url;
-    public Post()
-    {
+    public String selftext;
 
+    public Post(){}
+
+    public Post(String title, String author, String thumbnail, String url, int score, String selftext)
+    {
+        this.title = title;
+        this.author = author;
+        this.thumbnail = thumbnail;
+        this.url = url;
+        this.score = score;
+        this.selftext = selftext;
     }
 }

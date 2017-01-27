@@ -8,4 +8,5 @@ public class ChildWrapper
 {
     public String modhash;
     public PostWrapper[] children;
+    public String after;
 }
