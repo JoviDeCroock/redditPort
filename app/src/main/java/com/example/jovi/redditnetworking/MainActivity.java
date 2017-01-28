@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity
     private PostReaderHelper mDbHelper;
     private String after = "";
     private ArrayAdapter<String> adapter;
+    private int last, topOffset = 0;
     @Bind(R.id.content_main) RelativeLayout r;
     @Bind(R.id.listPosts) ListView list;
     @Bind(R.id.txtInit) TextView txt;
@@ -132,6 +133,14 @@ public class MainActivity extends AppCompatActivity
     }
     private void filldrawer(ArrayList<Post> posts)
     {
+        if(posts.size()>30){
+            last = list.getFirstVisiblePosition();
+            View v = list.getChildAt(0);
+            topOffset = (v == null) ? 0 : v.getTop();
+        }else{
+            last = 0;
+            topOffset = 0;
+        }
         ArrayList<String> strings = new ArrayList<String>();
         for (Post p : posts) {
             String x = String.format(getString(R.string.post), p.title, p.author, p.score);
@@ -171,6 +180,11 @@ public class MainActivity extends AppCompatActivity
         SharedPreferences prefs = getSharedPreferences("redditNet", MODE_PRIVATE);
         String restoredText = prefs.getString("choiche", null);
         this.setTitle(restoredText);
+        if(last != 0)
+        {
+            list.setSelectionFromTop(last, topOffset);
+        }
+
     }
     private void showDetails(int i)
     {
@@ -252,8 +266,6 @@ public class MainActivity extends AppCompatActivity
     }
     private void loadMore()
     {
-        int pos = posts.size();
-        int x = (int) Math.ceil(pos/25)+1;
         SharedPreferences prefs = getSharedPreferences("redditNet", MODE_PRIVATE);
         String restId = prefs.getString("choiche", null);
         if(restId != null)
